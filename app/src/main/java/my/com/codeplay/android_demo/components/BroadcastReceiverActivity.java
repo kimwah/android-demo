@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
+import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -41,7 +42,7 @@ public class BroadcastReceiverActivity extends AppCompatActivity {
 
             final ConnectivityManager cm = (ConnectivityManager)
                     context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            info = cm.getActiveNetworkInfo();
+            //info = cm.getActiveNetworkInfo();
 
             /* Check only if the connection is specified to WIFI connection type
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {

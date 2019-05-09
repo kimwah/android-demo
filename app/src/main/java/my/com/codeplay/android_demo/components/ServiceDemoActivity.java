@@ -23,6 +23,8 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.concurrent.TimeUnit;
@@ -90,7 +92,20 @@ public class ServiceDemoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service);
 
-        tvTime = (TextView) findViewById(R.id.text);
+        tvTime = findViewById(R.id.text);
+        ImageButton btnPlay = findViewById(R.id.button_play);
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMediaPlayerButtonClick(v);
+            }
+        });
+        findViewById(R.id.button_reset).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMediaPlayerButtonClick(v);
+            }
+        });
     }
 
     @Override
@@ -105,7 +120,8 @@ public class ServiceDemoActivity extends AppCompatActivity {
             case R.id.button_play:
                 Intent mediaPlayerIntent = new Intent(this,
                         MediaPlayerService.class);
-                mediaPlayerIntent.putExtra(MediaPlayerService.EXTRA_SONG_ID,
+                mediaPlayerIntent
+                        .putExtra(MediaPlayerService.EXTRA_SONG_ID,
                         R.raw.mungkin_nanti);
 
                 startService(mediaPlayerIntent);

@@ -63,4 +63,11 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/ic_android_black_48dp"/>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/center_view"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_android_black_48dp"/>
+
 </RelativeLayout>

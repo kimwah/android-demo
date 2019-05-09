@@ -207,6 +207,7 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
 		 *  that starts an Activity.
 		 */
 		Intent resultIntent = new Intent(getActivity(), MainActivity.class);
+
 		// To perform a broadcast via pending intent, use getBroadcast(...)
 		PendingIntent resultPendingIntent = PendingIntent.getActivity(
 				getActivity(),
