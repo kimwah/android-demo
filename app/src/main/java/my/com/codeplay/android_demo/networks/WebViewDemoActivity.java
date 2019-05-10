@@ -30,6 +30,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
@@ -107,6 +108,12 @@ public class WebViewDemoActivity extends AppCompatActivity {
          * browser apps.
          */
         webView.setWebViewClient(new WebViewClient() {
+            @androidx.annotation.Nullable
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                return super.shouldInterceptRequest(view, request);
+            }
+
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 super.onReceivedError(view, request, error);
@@ -119,7 +126,7 @@ public class WebViewDemoActivity extends AppCompatActivity {
             }
         });
         // enable JavaScript
-        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings()..setJavaScriptEnabled(true);
         webView.addJavascriptInterface(new DeviceInfo(), "DeviceInfo");
 
         /* Example to load from an HTML string
